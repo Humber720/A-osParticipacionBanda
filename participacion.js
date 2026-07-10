@@ -1,5 +1,5 @@
 // URL de tu Apps Script
-const API = "https://script.google.com/macros/s/AKfycbzmsIQJYULRvBXolCS-hkwr6Z3nzC_wITQH1rEvMbttdLh7GQUnr8Zo88MrGvOuthRe/exec";
+const API = "https://script.google.com/macros/s/AKfycbxacPwKzldyHZkfYjz5j57M_7adtiDmSpQzMnt-DkSADKKXsnf2SGKZ3GLsyqe-OOHe/exec";
 
 // Controles
 const txtCI = document.getElementById("ci");
