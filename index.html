@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consulta Trayectoria - Banda de Música U.E.THP "Jupapina"</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="logo">
+
+            <!-- Logo Unidad Educativa -->
+            <img src="img/logo.png" id="logo" alt="Logo">
+
+        </div>
+
+        <h1>
+            🎺 Banda de Música<br>
+            U.E.THP "Jupapina"
+        </h1>
+
+        <p>
+            Consulta tus años de participación ingresando tu Carnet de Identidad
+        </p>
+
+        <div class="search">
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <input
+                    type="number"
+                    id="ci"
+                    placeholder="Ejemplo: 12345678">
+
+            </div>
+
+            <button id="buscar">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Consultar
+
+            </button>
+
+        </div>
+
+        <!-- Cargando -->
+
+        <div class="loading" id="loading">
+
+            <div class="spinner"></div>
+
+            <span>
+                Consultando información...
+            </span>
+
+        </div>
+
+        <!-- Resultado -->
+
+        <div class="resultado" id="resultado">
+
+            <h2>
+                🎺 TRAYECTORIA EN LA BANDA DE MÚSICA
+            </h2>
+
+            <div class="fila">
+
+                <span>
+                    👤 Nombre:
+                </span>
+
+                <strong id="nombre"></strong>
+
+            </div>
+
+            <div class="fila">
+
+                <span>
+                    🏫 Curso:
+                </span>
+
+                <strong id="curso"></strong>
+
+            </div>
+
+            <div class="fila">
+
+                <span>
+                    🎵 Instrumento:
+                </span>
+
+                <strong id="instrumento"></strong>
+
+            </div>
+
+            <div class="fila destacado">
+
+                <span>
+                    🏆 Años de participación:
+                </span>
+
+                <strong id="años"></strong>
+
+            </div>
+
+            <!-- TABLA DE AÑOS -->
+
+            <div class="tabla-años">
+
+                <h3>
+                    📅 Historial de participación
+                </h3>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Año</th>
+
+                            <th>Gestión</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaAños">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- DESCRIPCIÓN -->
+
+            <div class="bloque">
+
+                <h3>
+                    📖 Descripción
+                </h3>
+
+                <p id="descripcion"></p>
+
+            </div>
+
+            <!-- OBSERVACIÓN -->
+
+            <div class="bloque">
+
+                <h3>
+                    🏅 Observación
+                </h3>
+
+                <p id="observacion"></p>
+
+            </div>
+
+        </div>
+
+        <!-- No encontrado -->
+
+        <div class="mensaje" id="mensaje">
+
+            <i class="fa-solid fa-circle-xmark"></i>
+
+            <p>
+                No se encontró ningún estudiante.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Pie de página (FUERA DE LA TARJETA) -->
+
+    <footer>
+
+        🎺 Desarrollado por Humberto Yupanqui © 2026
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="participacion.js"></script>
+
+</body>
+
+</html>
