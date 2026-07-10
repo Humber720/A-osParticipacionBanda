@@ -1,120 +1,648 @@
-/* =====================================
-   RESPONSIVE FINAL
-   CELULAR - TABLET - LAPTOP
-===================================== */
+/* ==========================
+   CONSULTA TRAYECTORIA BANDA
+   Autor: Humberto Yupanqui
+========================== */
 
 
-/* Evitar desbordamiento */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-html, body{
 
-    width:100%;
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#0f2747,#1e5799,#4facfe);
 
     overflow-x:hidden;
 
+    position:relative;
+
+    padding:20px;
+
+}
+
+
+
+/* Fondo animado */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    radial-gradient(circle at 20% 30%,
+    rgba(255,255,255,.18),
+    transparent 25%),
+
+    radial-gradient(circle at 80% 70%,
+    rgba(255,255,255,.12),
+    transparent 25%);
+
+
+    animation:fondo 12s infinite alternate;
+
+    z-index:-1;
+
 }
 
 
-/* LAPTOP Y PANTALLAS GRANDES */
 
-@media(min-width:1024px){
+@keyframes fondo{
 
-    body{
+    from{
 
-        padding:30px;
-
-    }
-
-
-    .card{
-
-        max-width:560px;
+        transform:scale(1);
 
     }
 
+    to{
 
-    footer{
-
-        max-width:560px;
+        transform:scale(1.15);
 
     }
 
 }
+
+
+
+
+
+.card{
+
+    width:100%;
+
+    max-width:560px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    color:white;
+
+    animation:entrada .7s ease;
+
+}
+
+
+
+@keyframes entrada{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+
+.logo img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+}
+
+
+
+
+
+
+h1{
+
+    text-align:center;
+
+    font-size:28px;
+
+    line-height:1.3;
+
+    margin-bottom:12px;
+
+}
+
+
+
+p{
+
+    text-align:center;
+
+    opacity:.9;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* BUSCADOR */
+
+
+.search{
+
+    width:100%;
+
+}
+
+
+.input-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+
+.input-box i{
+
+    color:#1e5799;
+
+    padding:15px;
+
+    font-size:20px;
+
+}
+
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:15px;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+button{
+
+    width:100%;
+
+    margin-top:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    background:#00c853;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    background:#00a844;
+
+    transform:translateY(-3px);
+
+}
+
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+
+
+
+
+/* CARGANDO */
+
+
+.loading{
+
+    display:none;
+
+    margin-top:25px;
+
+    text-align:center;
+
+}
+
+
+.spinner{
+
+    width:45px;
+
+    height:45px;
+
+    border:5px solid rgba(255,255,255,.4);
+
+    border-top:5px solid white;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:spin .8s linear infinite;
+
+}
+
+
+@keyframes spin{
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+.loading span{
+
+    display:block;
+
+    margin-top:12px;
+
+}
+
+
+
+
+
+/* RESULTADO */
+
+
+.resultado{
+
+    display:none;
+
+    margin-top:30px;
+
+    background:#ffffff;
+
+    color:#333;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+
+.resultado h2{
+
+    text-align:center;
+
+    color:#123b70;
+
+    font-size:21px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* DATOS */
+
+
+.fila{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.fila span{
+
+    color:#1e5799;
+
+    font-weight:600;
+
+}
+
+
+.fila strong{
+
+    text-align:right;
+
+}
+
+
+
+
+/* AÑOS */
+
+
+.destacado{
+
+    margin-top:10px;
+
+    background:#f8f1dc;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    border:none;
+
+}
+
+
+.destacado strong{
+
+    color:#b8860b;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* TABLA */
+
+
+.tabla-años{
+
+    margin-top:25px;
+
+}
+
+
+
+.tabla-años h3{
+
+    color:#123b70;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+}
+
+
+
+thead{
+
+    background:#123b70;
+
+    color:white;
+
+}
+
+
+
+th,td{
+
+    padding:12px;
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tbody tr:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+
+
+
+/* DESCRIPCION Y OBSERVACION */
+
+
+.bloque{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:#f8f9fa;
+
+}
+
+
+
+.bloque h3{
+
+    color:#123b70;
+
+    margin-bottom:10px;
+
+    font-size:17px;
+
+}
+
+
+.bloque p{
+
+    color:#333;
+
+    text-align:left;
+
+    margin:0;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+/* MENSAJE */
+
+
+.mensaje{
+
+    display:none;
+
+    margin-top:25px;
+
+    background:#ffebee;
+
+    color:#c62828;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    text-align:center;
+
+}
+
+
+.mensaje i{
+
+    font-size:45px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+footer{
+
+    position:fixed;
+
+    bottom:10px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:13px;
+
+}
+
+
 
 
 
 /* TABLET */
 
-@media(min-width:600px) and (max-width:1023px){
 
-    body{
-
-        padding:20px;
-
-        justify-content:center;
-
-    }
+@media(max-width:768px){
 
 
     .card{
 
-        width:90%;
-
-        max-width:600px;
-
-        padding:30px;
+        padding:25px;
 
     }
 
 
     h1{
 
-        font-size:26px;
+        font-size:24px;
 
     }
-
-
-    .resultado{
-
-        padding:22px;
-
-    }
-
-
-    footer{
-
-        width:90%;
-
-    }
-
-}
-
-
-
-/* CELULAR */
-
-@media(max-width:599px){
-
-    body{
-
-        padding:10px;
-
-        justify-content:flex-start;
-
-    }
-
-
-
-    .card{
-
-        width:100%;
-
-        padding:18px;
-
-        border-radius:20px;
-
-    }
-
 
 
     .logo img{
@@ -126,6 +654,37 @@ html, body{
     }
 
 
+}
+
+
+
+
+
+/* CELULAR */
+
+
+@media(max-width:480px){
+
+
+    body{
+
+        padding:10px;
+
+        align-items:flex-start;
+
+    }
+
+
+    .card{
+
+        margin-top:15px;
+
+        padding:20px;
+
+        border-radius:20px;
+
+    }
+
 
     h1{
 
@@ -134,43 +693,13 @@ html, body{
     }
 
 
-
-    .input-box input{
-
-        font-size:16px;
-
-    }
-
-
-
-    button{
-
-        font-size:16px;
-
-        padding:13px;
-
-    }
-
-
-
-    .resultado{
-
-        padding:15px;
-
-        border-radius:18px;
-
-    }
-
-
-
     .fila{
 
         flex-direction:column;
 
-        gap:4px;
+        gap:5px;
 
     }
-
 
 
     .fila strong{
@@ -183,7 +712,7 @@ html, body{
 
     table{
 
-        min-width:260px;
+        font-size:14px;
 
     }
 
@@ -191,17 +720,7 @@ html, body{
 
     th,td{
 
-        padding:8px;
-
-        font-size:14px;
-
-    }
-
-
-
-    .bloque{
-
-        padding:12px;
+        padding:8px 5px;
 
     }
 
@@ -209,14 +728,12 @@ html, body{
 
     footer{
 
-        width:100%;
-
-        font-size:12px;
-
-        padding:10px;
+        position:relative;
 
         margin-top:15px;
 
     }
 
+
 }
+
